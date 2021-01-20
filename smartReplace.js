@@ -3,7 +3,6 @@ const fs = require("fs");
 const replacements = [];
 var remoteContent;
 async function init(content) {
-	content = content.replace(/"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GITHUB")>-1&&process.exit(0);/, ` `)
     remoteContent = content;
     await inject();
     return batchReplace(remoteContent);
