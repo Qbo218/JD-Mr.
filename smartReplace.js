@@ -28,12 +28,6 @@ async function inject_jd() {
             value: `outPutUrl = err ? './tmp/' : outPutUrl;`,
         });
     }
-	if (remoteContent.indexOf("indexOf("GITHUB")") >= 0 {
-        replacements.push({
-            key: ""undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GITHUB")>-1&&process.exit(0);",
-            value: ` `,
-        });
-    }
     ignore_jd();
     await downloader_jd();
     await downloader_notify();
