@@ -222,7 +222,7 @@ async function downloader_jd() {
             "USER_AGENTS"
         );
     }
-    if (remoteContent.indexOf("jdShareCodes") > 0) {
+    if (remoteContent.indexOf("ShareCodes") > 0) {
         await download(
             "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
             "./utils/jdShareCodes.js",
