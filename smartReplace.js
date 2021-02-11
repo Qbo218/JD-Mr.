@@ -170,6 +170,11 @@ async function downloader_jd() {
             "./jdFruitShareCodes.js",
             "东东农场互助码"
         );
+        await download(
+            "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
+            "./utils/jdShareCodes.js",
+            "多账号互助"
+        );
     }
     if (remoteContent.indexOf("jdPetShareCodes") > 0) {
         await download(
