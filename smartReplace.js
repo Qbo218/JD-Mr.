@@ -170,12 +170,22 @@ async function downloader_jd() {
             "./jdFruitShareCodes.js",
             "东东农场互助码"
         );
+        await download(
+            "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
+            "./utils/jdShareCodes.js",
+            "多账号互助"
+        );
     }
     if (remoteContent.indexOf("jdPetShareCodes") > 0) {
         await download(
             "https://github.com/MisterGlasses/jd_scripts/raw/master/jdPetShareCodes.js",
             "./jdPetShareCodes.js",
             "京东萌宠"
+        );
+        await download(
+            "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
+            "./utils/jdShareCodes.js",
+            "多账号互助"
         );
     }
     if (remoteContent.indexOf("jdPlantBeanShareCodes") > 0) {
@@ -184,18 +194,34 @@ async function downloader_jd() {
             "./jdPlantBeanShareCodes.js",
             "种豆得豆互助码"
         );
+        await download(
+            "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
+            "./utils/jdShareCodes.js",
+            "多账号互助"
+        );
     }
-    if (remoteContent.indexOf("jdSuperMarketShareCodes") > 0)
+    if (remoteContent.indexOf("jdSuperMarketShareCodes") > 0) {
         await download(
             "https://github.com/MisterGlasses/jd_scripts/raw/master/jdSuperMarketShareCodes.js",
             "./jdSuperMarketShareCodes.js",
             "京小超互助码"
         );
+        await download(
+            "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
+            "./utils/jdShareCodes.js",
+            "多账号互助"
+        );
+    }
     if (remoteContent.indexOf("jdFactoryShareCodes") > 0) {
         await download(
             "https://github.com/MisterGlasses/jd_scripts/raw/master/jdFactoryShareCodes.js",
             "./jdFactoryShareCodes.js",
             "东东工厂互助码"
+        );
+        await download(
+            "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
+            "./utils/jdShareCodes.js",
+            "多账号互助"
         );
     }
     if (remoteContent.indexOf("jdDreamFactoryShareCodes") > 0) {
@@ -203,6 +229,11 @@ async function downloader_jd() {
             "https://github.com/MisterGlasses/jd_scripts/raw/master/jdDreamFactoryShareCodes.js",
             "./jdDreamFactoryShareCodes.js",
             "京喜工厂互助码"
+        );
+        await download(
+            "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
+            "./utils/jdShareCodes.js",
+            "多账号互助"
         );
     }
     if (remoteContent.indexOf("new Env('京喜农场')") > 0) {
@@ -221,8 +252,6 @@ async function downloader_jd() {
             "./USER_AGENTS.js",
             "USER_AGENTS"
         );
-    }
-    if (remoteContent.indexOf("ShareCodes") > 0) {
         await download(
             "https://github.com/MisterGlasses/jd_scripts/raw/master/utils/jdShareCodes.js",
             "./utils/jdShareCodes.js",
