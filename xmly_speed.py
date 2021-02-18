@@ -102,7 +102,7 @@ def run():
     for idx, xmlyCookie in enumerate(cookies.split('\n')):
         executeContent = webFileContent.replace(
             'xmly_speed_cookie = os.environ["XMLY_SPEED_COOKIE"]', 'xmly_speed_cookie = "' + xmlyCookie + '"', 1)
-        if xmlyCookie.find("_device=android") > 0:  # 此时表示是获取的安卓的cookie,需要使用安卓的agent
+        if xmlyCookie.find("_device=android") > 0:  # 此时表示是获取的安卓的cookie,需要使用安卓的agent,iPhone的cookie会自动使用默认agent。
             executeContent = re.sub(agentPattern, rewriteAgent, executeContent)
         if isOver():
             executeContent = executeContent.replace(
