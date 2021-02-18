@@ -16,6 +16,7 @@ class sendNotify:
     SCKEY = readSecret("PUSH_KEY")
 
     # =======================================QQ酷推通知设置区域===========================================
+    # QQ酷推黑名单关键字较多，不建议使用。
     # 此处填你申请的SKEY(具体详见文档 https://cp.xuthus.cc/)
     # 注：此处设置github action用户填写到Settings-Secrets里面(Name输入QQ_SKEY)
     QQ_SKEY = readSecret("QQ_SKEY")
