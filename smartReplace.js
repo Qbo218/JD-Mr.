@@ -163,7 +163,7 @@ function batchReplace() {
 
 async function downloader_jd() {
     if (/require\(['"`]{1}.\/jdCookie.js['"`]{1}\)/.test(remoteContent))
-        await download("https://github.com/MisterGlasses/Quantumult/raw/master/QuantumultX/jdCookie.js", "./jdCookie.js", "京东Cookies");
+        await download("https://github.com/Qbo218/JD-Mr./raw/JD-JB/jdCookie.js", "./jdCookie.js", "京东Cookies");
     if (remoteContent.indexOf("jdFruitShareCodes") > 0) {
         await download(
             "https://github.com/MisterGlasses/jd_scripts/raw/master/jdFruitShareCodes.js",
