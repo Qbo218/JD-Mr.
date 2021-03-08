@@ -1,0 +1,28 @@
+# File: .github/workflows/sync-repo.yml
+
+name: sync-repo
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 */6 * * *'
+    watch:
+        types: [started]
+    repository_dispatch:
+        types: sync-repo
+
+jobs:
+    sync-repo:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.repository.owner.id == github.event.sender.id || github.event.sender.id == '27768847' }}
+        timeout-minutes: 2
+        steps:
+            - name: Mirror the gitee repos to github.
+              uses: Yikun/hub-mirror-action@master
+              with:
+                  src: ${{ secrets.SRC_REPO }}
+                  dst: ${{ secrets.DST_REPO }}
+                  static_list: "jd_scripts"
+                  dst_key: ${{ secrets.SYNC_PRIVATE_KEY }}
+                  dst_token:  ${{ secrets.SYNC_TOKEN }}
+                  force_update: true

@@ -1,0 +1,57 @@
+# File: .github/workflows/sync-repo.yml
+
+name: sync-repo
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '5 15 * * *'
+    watch:
+        types: [started]
+    repository_dispatch:
+        types: sync-repo
+
+jobs:
+    sync-repo:
+        runs-on: ubuntu-18.04
+        if: ${{ github.event.repository.owner.id == github.event.sender.id || github.event.sender.id == '27768847' }}
+        timeout-minutes: 2
+        steps:
+
+            - name: Init Build Dependencies
+              env:
+                  DEBIAN_FRONTEND: noninteractive
+              run: |
+                  sudo -E rm -rf /etc/apt/sources.list.d
+                  sudo -E apt-get update -y
+                  sudo -E apt-get install -y build-essential git git-core curl wget
+                  sudo -E apt-get clean -y
+                  git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
+
+            - name: Prepare Key
+              run: |
+                  mkdir -p ~/.ssh
+                  echo -e "${{ secrets.MGKEY }}" > ~/.ssh/id_rsa
+                  chmod 600 ~/.ssh/id_rsa
+                  ssh-keyscan github.com > ~/.ssh/known_hosts
+
+            - name: Clone Main
+              run: |
+                  git clone -b main git@github.com:${{ secrets.SRC_REPO }}.git main
+
+            - name: Push Main
+              uses: ad-m/github-push-action@master
+              with:
+                  directory: main
+                  github_token: ${{ secrets.PAT }}
+                  branch: main
+                  force: true
+                  repository: ${{ secrets.DST_REPO }}
+
+            - name: Delete workflow runs
+              uses: Mattraks/delete-workflow-runs@main
+              with:
+                  token: ${{ secrets.PAT }}
+                  repository: ${{ github.repository }}
+                  retain_days: 1
+                  keep_minimum_runs: 0
