@@ -149,9 +149,6 @@ function ignore_jd() {
         }
     }
 }
-//#endregion
-
-//#region 加密
 
 function batchReplace() {
     for (var i = 0; i < replacements.length; i++) {
@@ -162,6 +159,9 @@ function batchReplace() {
     //console.log(remoteContent);
     return remoteContent;
 }
+//#endregion
+
+//#region 文件下载
 
 async function downloader_jd() {
     if (/require\(['"`]{1}.\/jdCookie.js['"`]{1}\)/.test(remoteContent)) {
@@ -214,8 +214,6 @@ async function download(url, path, target) {
     console.log(`下载${target}完毕`);
 }
 
-//#endregion
-
 function mkdir(filePath) {
     const arr = filePath.split('/');
     let dir = arr[0];
@@ -228,6 +226,8 @@ function mkdir(filePath) {
     }
     fs.writeFileSync(filePath, '');
 }
+//#endregion
+
 module.exports = {
     inject: init,
 };
