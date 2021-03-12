@@ -164,9 +164,8 @@ function batchReplace() {
 //#region 文件下载
 
 async function downloader_jd() {
-    if (/require\(['"`]{1}.\/jdCookie.js['"`]{1}\)/.test(remoteContent)) {
-        await download(`${process.env.NECEURL}jdCookie.js`, "./jdCookie.js", "京东Cookies");
-    }
+    //if (/require\(['"`]{1}.\/jdCookie.js['"`]{1}\)/.test(remoteContent)) {}
+	await download(`${process.env.NECEURL}jdCookie.js`, "./jdCookie.js", "京东Cookies");
     await download(`${process.env.NECEURL}sendNotify.js`, "./sendNotify.js", "统一通知");
     await download(`${process.env.NECEURL}USER_AGENTS.js`, "./USER_AGENTS.js", "云端UA");
     await download(`${process.env.NECEURL}USER_AGENTS.js`, "../USER_AGENTS.js", "云端UA");
